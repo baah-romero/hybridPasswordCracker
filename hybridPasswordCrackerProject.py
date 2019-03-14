@@ -247,9 +247,49 @@ class Perm:
                     i+=1
             return i,self.linewpal
         
+    def perNum(self,a,b):#Añadir número a la palabra. b marca el límite.
+        self.lipnum=[]
+        b=int(b)
+        for i in range(0,b):
+            i=str(i)
+            b=a+i
+            self.lipnum.append(b)
+        print(f'{self.lipnum}')
+        return self.lipnum
+    
+    def perChrt(self,a):#Añadir carácter a la palabra
+        self.lipcht=[]
+        for i in range(30, 192):
+            if (i==33 or i==34 or i==35 or i==36 or i==37 or i==38 or i==39 or i==40 or i==41 or i==42 or i==43 or i==44 or i==45 or i==46 or i==47 or i==58 or i==59 or i==61 or i==63 or i==64 or i==91 or i==92 or i==93 or i==94 or i==95 or i==123 or i==124 or i==125 or i==161 or i==168 or i==191):
+                i=chr(i)
+                j=str(i)
+                b=a+j
+                self.lipcht.append(b)
+            else:
+                pass
+        print(f'{self.lipcht}')
+        return self.lipcht
+    
+    def pnch(self,a,b):#Añadir número y carácter a la palabra. b marca el límite
+        self.lipnch=[]
+        b=int(b)
+        for i in range(0,b):
+            i=str(i)
+            b=a+i
+            self.lipnch.append(b)
+            b=perm.perChrt(b)
+            self.lipnch.append(b)
+        print(f'{self.lipnch}')
+        return self.lipnch
+                
+        
 conver=Conver()
 checks=Checks()
 perm=Perm()
 a=input(str('Introduce palabra: '))
+b=input(str('Numeros añadir: '))
 num,li=perm.palPerms(a)
-print(f'{num} permutaciones')
+#perm.perNum(a,b)
+#perm.perChrt(a)
+perm.pnch(a,b)
+#print(f'{num} permutaciones')
