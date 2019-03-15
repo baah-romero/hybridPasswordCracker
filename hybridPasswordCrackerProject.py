@@ -2,7 +2,7 @@
 """
 Created on Thu Mar 14 15:27:58 2019
 
-@author: sergio
+@author: baah-romero
 """
 
 class Conver:#Funciones de Conversión de caracteres
@@ -141,7 +141,8 @@ class Conver:#Funciones de Conversión de caracteres
             return self.ctnc
         elif self.ctnc==33:#Si es "!" retornar '¡'
             self.ctnc=161#ctnc valdrá '¡'
-            return self.ctnc       
+            return self.ctnc
+
         
     '''Construir toda la función'''        
     def morech(self,a):
@@ -168,6 +169,9 @@ class Checks:
             return self.nchar
         elif self.char in range(97,123):#Es Minuscula
             self.nchar=conver.minToMay(self.char)#Convertir a mayuscula el ASCII
+            return self.nchar
+        elif self.char==32:#Es un espacio
+            self.nchar=chr(95)#Retorna '_'
             return self.nchar
 
     def chchnum(self,a):#Realizar la función que compruebe letras y retorne true.
@@ -281,15 +285,48 @@ class Perm:
             self.lipnch.append(b)
         print(f'{self.lipnch}')
         return self.lipnch
-                
+
+class Fich:
+    def wrFil(self,a):
+        self.wr=a
+        self.fw=open('testPw.txt', 'a+')#Añade al final de la línea        
+        self.fw.write(f'{self.wr}\n') 
+        self.fw.close
+
+class Acttion:#Clase en la que se crean las acciones del SW
+    def __init__(self):
+      pass
+    
+    def adNum(self):
+        self.a=input(str('Numeros añadir: '))
+        return self.a
+    
+    def adWord(self):
+        self.a=input(str('Introduce palabra: '))
+        return self.a
+
+    def adSimWord(self):
+        self.liPer=[]
+        self.word=actt.adWord()
+        self.cnt,self.liPer=perm.palPerms(self.word)
+        for i in range(len(self.liPer)):
+            j=self.liPer[i]
+            fich.wrFil(j)
+        return self.cnt,self.liPer
+          
+                         
         
 conver=Conver()
 checks=Checks()
 perm=Perm()
-a=input(str('Introduce palabra: '))
-b=input(str('Numeros añadir: '))
-num,li=perm.palPerms(a)
+fich=Fich()
+actt=Acttion()
+n,li=actt.adSimWord()
+print(f'Existen {n} permutaciones.\n')
+#a=input(str('Introduce palabra: '))
+#b=input(str('Numeros añadir: '))
+#num,li=perm.palPerms(a)
 #perm.perNum(a,b)
 #perm.perChrt(a)
-perm.pnch(a,b)
+#perm.pnch(a,b)
 #print(f'{num} permutaciones')
