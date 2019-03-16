@@ -264,7 +264,11 @@ class Perm:
     def perChrt(self,a):#Añadir carácter a la palabra
         self.lipcht=[]
         for i in range(30, 192):
-            if (i==33 or i==34 or i==35 or i==36 or i==37 or i==38 or i==39 or i==40 or i==41 or i==42 or i==43 or i==44 or i==45 or i==46 or i==47 or i==58 or i==59 or i==61 or i==63 or i==64 or i==91 or i==92 or i==93 or i==94 or i==95 or i==123 or i==124 or i==125 or i==161 or i==168 or i==191):
+            if (i==33 or i==34 or i==35 or i==36 or i==37 or i==38 or i==39
+                or i==40 or i==41 or i==42 or i==43 or i==44 or i==45 or i==46
+                or i==47 or i==58 or i==59 or i==61 or i==63 or i==64 or i==91
+                or i==92 or i==93 or i==94 or i==95 or i==123 or i==124
+                or i==125 or i==161 or i==168 or i==191):
                 i=chr(i)
                 j=str(i)
                 b=a+j
@@ -305,6 +309,21 @@ class Acttion:#Clase en la que se crean las acciones del SW
         self.a=input(str('Introduce palabra: '))
         return self.a
 
+    def repAct(self):#Repetir acción
+        menu.repmen()#Mostrar el menú de repetir
+        self.a=input(str('\n\tEscoja Opción: '))
+        return self.a
+        
+    def chRep(self,a):#Comprobar repetir
+        self.a=a
+        if self.a=='S' or self.a=='s':
+            return True
+        elif self.a=='N' or self.a=='n':
+            return False
+        else:
+            pass#control de error
+            
+    
     def adSimWord(self):
         self.liPer=[]
         self.word=actt.adWord()
@@ -313,18 +332,34 @@ class Acttion:#Clase en la que se crean las acciones del SW
             j=self.liPer[i]
             fich.wrFil(j)
         return self.cnt,self.liPer
-          
+     
+        
                          
+class Menu:
+    def repmen(self):
+       print('|----------------------------------------------------------|')
+       print('|-------------- ¿Desea repetir la acción? -----------------|')
+       print('|----------------------------------------------------------|')        
+       print('|------------ SI [(S)|(s)] | NO [(N)|(n)]  ----------------|')
+       print('|----------------------------------------------------------|')
+
+     
         
 conver=Conver()
 checks=Checks()
 perm=Perm()
 fich=Fich()
 actt=Acttion()
+menu=Menu()
 n,li=actt.adSimWord()
 print(f'Existen {n} permutaciones.\n')
-#a=input(str('Introduce palabra: '))
-#b=input(str('Numeros añadir: '))
+d=actt.repAct()
+b=actt.chRep(d)
+if b==True:
+    n,li=actt.adSimWord()
+    print(f'Existen {n} permutaciones.\n')
+elif b==False:
+    pass
 #num,li=perm.palPerms(a)
 #perm.perNum(a,b)
 #perm.perChrt(a)
