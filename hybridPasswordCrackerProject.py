@@ -347,7 +347,7 @@ class Menu:
 class Main:
     def main():
         pass
-        s
+        
 conver=Conver()
 checks=Checks()
 perm=Perm()
