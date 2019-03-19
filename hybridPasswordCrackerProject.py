@@ -347,7 +347,7 @@ class Menu:
 class Main:
     def main():
         pass
-        
+
 conver=Conver()
 checks=Checks()
 perm=Perm()
@@ -355,12 +355,12 @@ fich=Fich()
 actt=Acttion()
 menu=Menu()
 n,li=actt.adSimWord()
-print(f'Existen {n} permutaciones.\n')
+print(f'[+] Existen {n} permutaciones.\n')
 d=actt.repAct()
 b=actt.chRep(d)
 if b==True:
     n,li=actt.adSimWord()
-    print(f'Existen {n} permutaciones.\n')
+    print(f'[+] Existen {n} permutaciones.\n')
 elif b==False:
     pass
 #num,li=perm.palPerms(a)
