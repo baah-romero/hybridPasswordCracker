@@ -10,14 +10,14 @@ class Conver:#Funciones de Conversión de caracteres
         self.car=a
         self.car=ord(self.car)
         return self.car
-    
+
     '''Función que se pasa un valor ascii de caracter y saca la minuscula'''
     def mayToMin(self,a):
         self.ncmin=a
         self.ncmin+=32
         self.ncmin=chr(self.ncmin)
         return self.ncmin
-    
+
     '''Función que se pasa un valor ascii de caracter y saca la Mayuscula'''
     def minToMay(self,a):
         self.ncmay=a
@@ -38,7 +38,7 @@ class Conver:#Funciones de Conversión de caracteres
             return self.ctna
         elif self.ctna==73 or self.ctna==76  or self.ctna==105  or self.ctna==108:#Si es 'I' o 'i' o 'L' o 'l' retornar '1'
             self.ctna=49#ctna valdrá '1'
-            return self.ctna            
+            return self.ctna
         elif self.ctna==69 or self.ctna==101:#Si es 'E' o 'e' retornar '3'
             self.ctna=51#ctna valdrá '3'
             return self.ctna
@@ -63,7 +63,7 @@ class Conver:#Funciones de Conversión de caracteres
         elif self.ctna==80 or self.ctna==112:#Si es 'P' o 'p' retornar '9'
             self.ctna=57#ctna valdrá '9'
             return self.ctna
-               
+
     '''Función para pasar de letra a caracter'''
     def charToChar(self,a):
         self.ctnc=a
@@ -143,8 +143,8 @@ class Conver:#Funciones de Conversión de caracteres
             self.ctnc=161#ctnc valdrá '¡'
             return self.ctnc
 
-        
-    '''Construir toda la función'''        
+
+    '''Construir toda la función'''
     def morech(self,a):
             self.moch=0
             if a== 66 or a ==86:#Si es B o V
@@ -159,7 +159,7 @@ class Conver:#Funciones de Conversión de caracteres
             elif a==87:#Si es W
                 self.moch=66#Retorna B
                 return self.moch
-            
+
 
 class Checks:
     def chchar(self,a):#Comprueba con el ASCII que tipo de caracter es
@@ -180,10 +180,10 @@ class Checks:
         if (self.cctn>=65 and self.cctn<91) or (self.cctn>=97 or self.cctn<123):
             return True #Si es una letra mayus o minus retorna true
         elif (self.cctn>=48 and self.ccnt<58):
-            return False #Si no es un número. 
+            return False #Si no es un número.
             '''Programar futuramente las acciones a la inversa en caso de ser número.'''
 
-class Perm:   
+class Perm:
     def palPerms(self,a):
         self.lior=[a]
         self.lich=[]
@@ -194,29 +194,29 @@ class Perm:
             for j in range(len(palabra)):#j será la posición del caracter en la palabra
                 self.lich=[]#Inicializar la lista vacía por cada carácter
                 letra=palabra[j]#letra será el valor de la letra en esa posicion [j]
-                self.lich.append(letra)#Almaceno el carácter de la palabra en la lista de los carácteres permutables                
+                self.lich.append(letra)#Almaceno el carácter de la palabra en la lista de los carácteres permutables
                 '''Pasamos a comprobar los valores que podrían permutar'''
                 chascii=conver.dicCon(letra)#Saco ascii de la letra en [j]
                 lMayMin=checks.chchar(chascii)#Extraigo el opuesto(Mayus o Minus) y almaceno el valor (no el ascii)
-                self.lich.append(lMayMin)#Almaceno el caracter opuesto en la lista                
+                self.lich.append(lMayMin)#Almaceno el caracter opuesto en la lista
                 '''Comprobarmos si se puede cambiar la letra por un número'''
                 lNum=conver.charToNum(chascii)#Almaceno en lNum el valor correspondiente al carácter en número
                 if lNum != None: #Si se obtiene resultado en el cambio a número
                     lNum=conver.chrToNum(lNum)
-                    self.lich.append(lNum)#Añadir el valor numérico a la lista de permutaciones.                
+                    self.lich.append(lNum)#Añadir el valor numérico a la lista de permutaciones.
                 '''Comporbamos si se puede cambiar por otra letra o carácter'''
                 lnlch=conver.charToChar(chascii)#Almaceno en lnlch el valor correspondiente a la letra
                 if lnlch != None:
                     lnlchletra=conver.chrToNum(lnlch)
                     lnlchletra1=checks.chchar(lnlch)
-                    if lnlchletra != None:#Si hay valor para lnlchletra 
+                    if lnlchletra != None:#Si hay valor para lnlchletra
                         self.lich.append(lnlchletra)#-> Añadir en la lista self.lich
-                    if lnlchletra1 != None:#Si hay valor para lnlchletra1 
+                    if lnlchletra1 != None:#Si hay valor para lnlchletra1
                         self.lich.append(lnlchletra1)#-> Añadir en la lista self.lich
                         lnlchletra1num=conver.charToNum(lnlch)
                         if lnlchletra1num != None:
                             lnlchletra1num=conver.chrToNum(lnlchletra1num)
-                            self.lich.append(lnlchletra1num)                            
+                            self.lich.append(lnlchletra1num)
                         lnlmore=lnlch-32#Paso a mayuscula el valor ascii en minuscula
                         lnlmore=conver.morech(lnlmore)#Ejecuto la función comprobartoria para el nuevo cambio.
                         if lnlmore != None:#Si se obtienen resultados
@@ -239,10 +239,10 @@ class Perm:
                                     newpaltolist=prefijo+newpal
                                     self.linewpal.append(newpaltolist)
                                 else:
-                                    pass                   
+                                    pass
                 elif j==0:#Realizar permutaciones sobre la palabra original y almacenar en self.linewpal
                     for z in range(len(self.lich)):
-                        clz=self.lich[z]#Valor del carazter en la posición z de self.lich                       
+                        clz=self.lich[z]#Valor del carazter en la posición z de self.lich
                         sufijo=palabra[j:]#Sacar el sufijo de la palabra
                         newpal=sufijo.replace(f'{sufijo[0]}', f'{clz}')
                         newpaltolist=newpal
@@ -250,7 +250,7 @@ class Perm:
                 for i in range(len(self.linewpal)):
                     i+=1
             return i,self.linewpal
-        
+
     def perNum(self,a,b):#Añadir número a la palabra. b marca el límite.
         self.lipnum=[]
         b=int(b)
@@ -260,7 +260,7 @@ class Perm:
             self.lipnum.append(b)
         print(f'{self.lipnum}')
         return self.lipnum
-    
+
     def perChrt(self,a):#Añadir carácter a la palabra
         self.lipcht=[]
         for i in range(30, 192):
@@ -277,7 +277,7 @@ class Perm:
                 pass
         print(f'{self.lipcht}')
         return self.lipcht
-    
+
     def pnch(self,a,b):#Añadir número y carácter a la palabra. b marca el límite
         self.lipnch=[]
         b=int(b)
@@ -293,18 +293,18 @@ class Perm:
 class Fich:
     def wrFil(self,a):
         self.wr=a
-        self.fw=open('testPw.txt', 'a+')#Añade al final de la línea        
-        self.fw.write(f'{self.wr}\n') 
+        self.fw=open('testPw.txt', 'a+')#Añade al final de la línea
+        self.fw.write(f'{self.wr}\n')
         self.fw.close
 
 class Acttion:#Clase en la que se crean las acciones del SW
     def __init__(self):
       pass
-    
+
     def adNum(self):
         self.a=input(str('Numeros añadir: '))
         return self.a
-    
+
     def adWord(self):
         self.a=input(str('Introduce palabra: '))
         return self.a
@@ -313,7 +313,7 @@ class Acttion:#Clase en la que se crean las acciones del SW
         menu.repmen()#Mostrar el menú de repetir
         self.a=input(str('\n\tEscoja Opción: '))
         return self.a
-        
+
     def chRep(self,a):#Comprobar repetir
         self.a=a
         if self.a=='S' or self.a=='s':
@@ -322,8 +322,8 @@ class Acttion:#Clase en la que se crean las acciones del SW
             return False
         else:
             pass#control de error
-            
-    
+
+
     def adSimWord(self):
         self.liPer=[]
         self.word=actt.adWord()
@@ -332,19 +332,22 @@ class Acttion:#Clase en la que se crean las acciones del SW
             j=self.liPer[i]
             fich.wrFil(j)
         return self.cnt,self.liPer
-     
-        
-                         
+
+
+
 class Menu:
     def repmen(self):
        print('|----------------------------------------------------------|')
        print('|-------------- ¿Desea repetir la acción? -----------------|')
-       print('|----------------------------------------------------------|')        
+       print('|----------------------------------------------------------|')
        print('|------------ SI [(S)|(s)] | NO [(N)|(n)]  ----------------|')
        print('|----------------------------------------------------------|')
 
-     
-        
+
+class Main:
+    def main():
+        pass
+        s
 conver=Conver()
 checks=Checks()
 perm=Perm()
@@ -365,3 +368,5 @@ elif b==False:
 #perm.perChrt(a)
 #perm.pnch(a,b)
 #print(f'{num} permutaciones')
+if name="__main__":
+    main()
