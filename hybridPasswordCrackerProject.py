@@ -183,6 +183,19 @@ class Checks:
             return False #Si no es un número.
             '''Programar futuramente las acciones a la inversa en caso de ser número.'''
 
+    def enList(self,a):#Función para acabar la lista
+        self.a=a
+        if self.a==':wq':
+            return True
+        else:
+            return False
+
+    def countList(self,a):
+        self.cnt=0
+        for i in range(len(a)):
+            self.cnt+=1
+        return self.cnt
+
 class Perm:
     def palPerms(self,a):
         self.lior=[a]
@@ -324,7 +337,7 @@ class Acttion:#Clase en la que se crean las acciones del SW
             pass#control de error
 
 
-    def adSimWord(self):
+    def adSimWord(self):#Añadir 1 palabra y permutar
         self.liPer=[]
         self.word=actt.adWord()
         self.cnt,self.liPer=perm.palPerms(self.word)
@@ -333,9 +346,38 @@ class Acttion:#Clase en la que se crean las acciones del SW
             fich.wrFil(j)
         return self.cnt,self.liPer
 
+    def perSimWord(self,a):#Añadir 1 palabra y permutar
+        self.liPer=[]
+        for i in range(len(a)):
+            self.i=a[i]
+            self.cnt,self.liPer=perm.palPerms(self.i)
+            guisme.prCntPerWor(self.i,self.cnt)
+            #for i in range(len(self.liPer)):
+                #j=self.liPer[i]
+                #fich.wrFil(j)
+            #return self.cnt,self.liPer
 
+    def adLiWord(self):#Generar una lista de palabras para el diccionario
+        self.liWoPer=[]
+        self.ac=True
+        while self.ac!=False:
+            self.nwrd=actt.adWord()
+            self.b=checks.enList(self.nwrd)
+            if self.b!=True:
+                self.liWoPer.append(self.nwrd)
+                self.ac==True
+            elif self.b==True:
+                self.ac==self.b
+                return self.ac, self.liWoPer
 
-class Menu:
+    def nDiList(self):
+        self.a,self.b=actt.adLiWord()
+        self.i=checks.countList(self.b)
+        guisme.prCnt(self.i)
+        actt.perSimWord(self.b)
+        guisme.prEndLis()
+
+class Guisme:
     def repmen(self):
        print('|----------------------------------------------------------|')
        print('|-------------- ¿Desea repetir la acción? -----------------|')
@@ -343,17 +385,27 @@ class Menu:
        print('|------------ SI [(S)|(s)] | NO [(N)|(n)]  ----------------|')
        print('|----------------------------------------------------------|')
 
+    def prCnt(self,a):
+        print('|---------------------------------------------------------------------------------------|')
+        print(f'|\t|------- [+] Hay un total de {a} palabras en la lista')
 
-class Main:
-    def main():
-        pass
+    def prCntPerWor(self,a,b):
+        print(f'|\t\t|------- [+] Palabra que permuta: {a}')
+        print(f'|\t\t\t|------- [+] Hay un total de {b} permutaciones posibles.')
+
+    def prEndLis(self):
+        print('|---------------------------------------------------------------------------------------|')
+
+def main():
+    actt.nDiList()
 
 conver=Conver()
 checks=Checks()
 perm=Perm()
 fich=Fich()
 actt=Acttion()
-menu=Menu()
+guisme=Guisme()
+'''
 n,li=actt.adSimWord()
 print(f'[+] Existen {n} permutaciones.\n')
 d=actt.repAct()
@@ -363,10 +415,11 @@ if b==True:
     print(f'[+] Existen {n} permutaciones.\n')
 elif b==False:
     pass
-#num,li=perm.palPerms(a)
-#perm.perNum(a,b)
-#perm.perChrt(a)
-#perm.pnch(a,b)
-#print(f'{num} permutaciones')
-if name="__main__":
+num,li=perm.palPerms(a)
+perm.perNum(a,b)
+perm.perChrt(a)
+perm.pnch(a,b)
+print(f'{num} permutaciones')
+'''
+if __name__=='__main__':
     main()
