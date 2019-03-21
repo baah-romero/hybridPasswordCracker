@@ -351,11 +351,17 @@ class Acttion:#Clase en la que se crean las acciones del SW
         for i in range(len(a)):
             self.i=a[i]
             self.cnt,self.liPer=perm.palPerms(self.i)
+            for z in range(len(self.liPer)):
+                w=self.liPer[z]
+                fich.wrFil(w)
             guisme.prCntPerWor(self.i,self.cnt)
-            #for i in range(len(self.liPer)):
-                #j=self.liPer[i]
-                #fich.wrFil(j)
-            #return self.cnt,self.liPer
+
+    def perPnch(self,a):#Añadir numeros ychars
+        self.lipnch=[]
+        for i in range(len(a)):
+            self.word=a[i]
+            self.lipnch=perm.perPnch(self.word,10)
+            #insertar en fichero si se desea
 
     def adLiWord(self):#Generar una lista de palabras para el diccionario
         self.liWoPer=[]
@@ -394,6 +400,8 @@ class Guisme:
         print(f'|\t\t\t|------- [+] Hay un total de {b} permutaciones posibles.')
 
     def prEndLis(self):
+        print('|---------------------------------------------------------------------------------------|')
+        print(f'|\t|------- [+] Se generó el diccionario test.txt')
         print('|---------------------------------------------------------------------------------------|')
 
 def main():
