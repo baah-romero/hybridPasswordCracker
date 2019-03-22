@@ -306,7 +306,7 @@ class Fich:
         self.dictFile=actt.adFile()
         self.dictFile=self.dictFile+'.txt'
         return self.dictFile
-    
+
     def wrFil(self,a,b):
         self.wr=a
         self.ndic=b
@@ -325,7 +325,7 @@ class Acttion:#Clase en la que se crean las acciones del SW
     def adWord(self):
         self.a=input(str('|----- [+] Introduce palabra: '))
         return self.a
-    
+
     def adFile(self):
         print('|---------------------------------------------------------------------------------------|')
         self.a=input(str('|----- [+] Nombre del fichero a generar: '))
@@ -394,7 +394,7 @@ class Acttion:#Clase en la que se crean las acciones del SW
         guisme.resum()
         guisme.prCnt(self.i)
         actt.perSimWord(self.b,self.dicF)
-        guisme.prEndLis(self.dicFdic)
+        guisme.prEndLis(self.dicF)
 
 class Guisme:
     def resum(self):
