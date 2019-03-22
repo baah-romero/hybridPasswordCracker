@@ -4,7 +4,8 @@ Created on Thu Mar 14 15:27:58 2019
 
 @author: baah-romero
 """
-
+import os
+import time
 class Conver:#Funciones de Conversión de caracteres
     def dicCon(self, a):#Retorna el caracter en ASCII
         self.car=a
@@ -271,7 +272,6 @@ class Perm:
             i=str(i)
             b=a+i
             self.lipnum.append(b)
-        print(f'{self.lipnum}')
         return self.lipnum
 
     def perChrt(self,a):#Añadir carácter a la palabra
@@ -288,7 +288,6 @@ class Perm:
                 self.lipcht.append(b)
             else:
                 pass
-        print(f'{self.lipcht}')
         return self.lipcht
 
     def pnch(self,a,b):#Añadir número y carácter a la palabra. b marca el límite
@@ -300,13 +299,18 @@ class Perm:
             self.lipnch.append(b)
             b=perm.perChrt(b)
             self.lipnch.append(b)
-        print(f'{self.lipnch}')
         return self.lipnch
 
 class Fich:
-    def wrFil(self,a):
+    def creDict(self):
+        self.dictFile=actt.adFile()
+        self.dictFile=self.dictFile+'.txt'
+        return self.dictFile
+    
+    def wrFil(self,a,b):
         self.wr=a
-        self.fw=open('testPw.txt', 'a+')#Añade al final de la línea
+        self.ndic=b
+        self.fw=open(f'{self.ndic}', 'a+')#Añade al final de la línea
         self.fw.write(f'{self.wr}\n')
         self.fw.close
 
@@ -315,15 +319,21 @@ class Acttion:#Clase en la que se crean las acciones del SW
       pass
 
     def adNum(self):
-        self.a=input(str('Numeros añadir: '))
+        self.a=input(str('|----- [+] Numeros añadir: '))
         return self.a
 
     def adWord(self):
-        self.a=input(str('Introduce palabra: '))
+        self.a=input(str('|----- [+] Introduce palabra: '))
+        return self.a
+    
+    def adFile(self):
+        print('|---------------------------------------------------------------------------------------|')
+        self.a=input(str('|----- [+] Nombre del fichero a generar: '))
+        print('|---------------------------------------------------------------------------------------|')
         return self.a
 
     def repAct(self):#Repetir acción
-        menu.repmen()#Mostrar el menú de repetir
+        guisme.repmen()#Mostrar el menú de repetir
         self.a=input(str('\n\tEscoja Opción: '))
         return self.a
 
@@ -346,14 +356,15 @@ class Acttion:#Clase en la que se crean las acciones del SW
             fich.wrFil(j)
         return self.cnt,self.liPer
 
-    def perSimWord(self,a):#Añadir 1 palabra y permutar
+    def perSimWord(self,a,b):#Añadir 1 palabra y permutar
         self.liPer=[]
+        self.diFile=b
         for i in range(len(a)):
             self.i=a[i]
             self.cnt,self.liPer=perm.palPerms(self.i)
             for z in range(len(self.liPer)):
                 w=self.liPer[z]
-                fich.wrFil(w)
+                fich.wrFil(w, self.diFile)
             guisme.prCntPerWor(self.i,self.cnt)
 
     def perPnch(self,a):#Añadir numeros ychars
@@ -377,13 +388,19 @@ class Acttion:#Clase en la que se crean las acciones del SW
                 return self.ac, self.liWoPer
 
     def nDiList(self):
+        self.dicF=fich.creDict()
         self.a,self.b=actt.adLiWord()
         self.i=checks.countList(self.b)
+        guisme.resum()
         guisme.prCnt(self.i)
-        actt.perSimWord(self.b)
-        guisme.prEndLis()
+        actt.perSimWord(self.b,self.dicF)
+        guisme.prEndLis(self.dicFdic)
 
 class Guisme:
+    def resum(self):
+        print('|---------------------------------------------------------------------------------------|')
+        print('|--------------------------------| RESUMEN |--------------------------------------------|')
+        print('|---------------------------------------------------------------------------------------|')
     def repmen(self):
        print('|----------------------------------------------------------|')
        print('|-------------- ¿Desea repetir la acción? -----------------|')
@@ -399,9 +416,9 @@ class Guisme:
         print(f'|\t\t|------- [+] Palabra que permuta: {a}')
         print(f'|\t\t\t|------- [+] Hay un total de {b} permutaciones posibles.')
 
-    def prEndLis(self):
+    def prEndLis(self,a):
         print('|---------------------------------------------------------------------------------------|')
-        print(f'|\t|------- [+] Se generó el diccionario test.txt')
+        print(f'|\t|------- [+] Se generó el diccionario {a}')
         print('|---------------------------------------------------------------------------------------|')
 
 def main():
