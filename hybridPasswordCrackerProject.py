@@ -306,7 +306,7 @@ class Fich:
         self.dictFile=actt.adFile()
         self.dictFile=self.dictFile+'.txt'
         return self.dictFile
-
+    
     def wrFil(self,a,b):
         self.wr=a
         self.ndic=b
@@ -325,7 +325,7 @@ class Acttion:#Clase en la que se crean las acciones del SW
     def adWord(self):
         self.a=input(str('|----- [+] Introduce palabra: '))
         return self.a
-
+        
     def adFile(self):
         print('|---------------------------------------------------------------------------------------|')
         self.a=input(str('|----- [+] Nombre del fichero a generar: '))
@@ -358,14 +358,22 @@ class Acttion:#Clase en la que se crean las acciones del SW
 
     def perSimWord(self,a,b):#Añadir 1 palabra y permutar
         self.liPer=[]
+        self.t1=time.clock()
         self.diFile=b
         for i in range(len(a)):
             self.i=a[i]
+            self.t2=time.clock()
             self.cnt,self.liPer=perm.palPerms(self.i)
             for z in range(len(self.liPer)):
                 w=self.liPer[z]
                 fich.wrFil(w, self.diFile)
+            self.t3=time.clock()
+            self.timing=self.t3-self.t2#Tiempo total en permutar 1 palabra
             guisme.prCntPerWor(self.i,self.cnt)
+            guisme.prTimming(self.timing)
+        self.t4=time.clock()
+        self.timing=self.t4-self.t1#Tiempo total en permutar todas las palabras
+        return self.timing
 
     def perPnch(self,a):#Añadir numeros ychars
         self.lipnch=[]
@@ -385,7 +393,7 @@ class Acttion:#Clase en la que se crean las acciones del SW
                 self.ac==True
             elif self.b==True:
                 self.ac==self.b
-                return self.ac, self.liWoPer
+                return self.ac,self.liWoPer
 
     def nDiList(self):
         self.dicF=fich.creDict()
@@ -393,8 +401,9 @@ class Acttion:#Clase en la que se crean las acciones del SW
         self.i=checks.countList(self.b)
         guisme.resum()
         guisme.prCnt(self.i)
-        actt.perSimWord(self.b,self.dicF)
+        self.t=actt.perSimWord(self.b,self.dicF)
         guisme.prEndLis(self.dicF)
+        guisme.prEndTim(self.t)
 
 class Guisme:
     def resum(self):
@@ -414,11 +423,20 @@ class Guisme:
 
     def prCntPerWor(self,a,b):
         print(f'|\t\t|------- [+] Palabra que permuta: {a}')
-        print(f'|\t\t\t|------- [+] Hay un total de {b} permutaciones posibles.')
+        print(f'|\t\t\t  |------- [+] Hay un total de {b} permutaciones posibles.')
+
+    def prTimming(self,a):
+        a=round(a,3)
+        print(f'|\t\t         [+] Tiempo transcurrido en permutar palabra: {a} segundos')
+        print('|---------------------------------------------------------------------------------------|')
 
     def prEndLis(self,a):
         print('|---------------------------------------------------------------------------------------|')
         print(f'|\t|------- [+] Se generó el diccionario {a}')
+        
+    def prEndTim(self,a):
+        a=round(a,3)
+        print(f'|\t|------- [+] Tiempo total transcurrido en la permutación: {a} segundos')
         print('|---------------------------------------------------------------------------------------|')
 
 def main():
