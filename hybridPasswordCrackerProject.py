@@ -332,6 +332,13 @@ class Acttion:#Clase en la que se crean las acciones del SW
         print('|---------------------------------------------------------------------------------------|')
         return self.a
 
+    def clearTerm(self):#Limpia la terminal
+        self.a=os.name
+        if os.name=="posix":
+            os.system("clear")
+        elif os.name==("ce","nt","dos"):
+            os.system("cls")
+            
     def repAct(self):#Repetir acción
         guisme.repmen()#Mostrar el menú de repetir
         self.a=input(str('\n\tEscoja Opción: '))
@@ -440,6 +447,7 @@ class Guisme:
         print('|---------------------------------------------------------------------------------------|')
 
 def main():
+    actt.clearTerm()
     actt.nDiList()
 
 conver=Conver()
