@@ -306,7 +306,7 @@ class Fich:
         self.dictFile=actt.adFile()
         self.dictFile=self.dictFile+'.txt'
         return self.dictFile
-    
+
     def wrFil(self,a,b):
         self.wr=a
         self.ndic=b
@@ -325,7 +325,7 @@ class Acttion:#Clase en la que se crean las acciones del SW
     def adWord(self):
         self.a=input(str('|----- [+] Introduce palabra: '))
         return self.a
-        
+
     def adFile(self):
         print('|---------------------------------------------------------------------------------------|')
         self.a=input(str('|----- [+] Nombre del fichero a generar: '))
@@ -338,7 +338,7 @@ class Acttion:#Clase en la que se crean las acciones del SW
             os.system("clear")
         elif os.name==("ce","nt","dos"):
             os.system("cls")
-            
+
     def repAct(self):#Repetir acción
         guisme.repmen()#Mostrar el menú de repetir
         self.a=input(str('\n\tEscoja Opción: '))
@@ -365,20 +365,20 @@ class Acttion:#Clase en la que se crean las acciones del SW
 
     def perSimWord(self,a,b):#Añadir 1 palabra y permutar
         self.liPer=[]
-        self.t1=time.clock()
+        self.t1=time.process_time()
         self.diFile=b
         for i in range(len(a)):
             self.i=a[i]
-            self.t2=time.clock()
+            self.t2=time.process_time()
             self.cnt,self.liPer=perm.palPerms(self.i)
             for z in range(len(self.liPer)):
                 w=self.liPer[z]
                 fich.wrFil(w, self.diFile)
-            self.t3=time.clock()
+            self.t3=time.process_time()
             self.timing=self.t3-self.t2#Tiempo total en permutar 1 palabra
             guisme.prCntPerWor(self.i,self.cnt)
             guisme.prTimming(self.timing)
-        self.t4=time.clock()
+        self.t4=time.process_time()
         self.timing=self.t4-self.t1#Tiempo total en permutar todas las palabras
         return self.timing
 
@@ -440,7 +440,7 @@ class Guisme:
     def prEndLis(self,a):
         print('|---------------------------------------------------------------------------------------|')
         print(f'|\t|------- [+] Se generó el diccionario {a}')
-        
+
     def prEndTim(self,a):
         a=round(a,3)
         print(f'|\t|------- [+] Tiempo total transcurrido en la permutación: {a} segundos')
