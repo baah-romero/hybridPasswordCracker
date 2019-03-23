@@ -306,7 +306,7 @@ class Fich:
         self.dictFile=actt.adFile()
         self.dictFile=self.dictFile+'.txt'
         return self.dictFile
-
+    
     def wrFil(self,a,b):
         self.wr=a
         self.ndic=b
@@ -325,11 +325,10 @@ class Acttion:#Clase en la que se crean las acciones del SW
     def adWord(self):
         self.a=input(str('|----- [+] Introduce palabra: '))
         return self.a
-
+        
     def adFile(self):
-        print('|---------------------------------------------------------------------------------------|')
         self.a=input(str('|----- [+] Nombre del fichero a generar: '))
-        print('|---------------------------------------------------------------------------------------|')
+        print('|-------------------------------------------------------------------------------------------------------|')
         return self.a
 
     def clearTerm(self):#Limpia la terminal
@@ -338,21 +337,6 @@ class Acttion:#Clase en la que se crean las acciones del SW
             os.system("clear")
         elif os.name==("ce","nt","dos"):
             os.system("cls")
-
-    def repAct(self):#Repetir acción
-        guisme.repmen()#Mostrar el menú de repetir
-        self.a=input(str('\n\tEscoja Opción: '))
-        return self.a
-
-    def chRep(self,a):#Comprobar repetir
-        self.a=a
-        if self.a=='S' or self.a=='s':
-            return True
-        elif self.a=='N' or self.a=='n':
-            return False
-        else:
-            pass#control de error
-
 
     def adSimWord(self):#Añadir 1 palabra y permutar
         self.liPer=[]
@@ -365,20 +349,20 @@ class Acttion:#Clase en la que se crean las acciones del SW
 
     def perSimWord(self,a,b):#Añadir 1 palabra y permutar
         self.liPer=[]
-        self.t1=time.process_time()
+        self.t1=time.clock()
         self.diFile=b
         for i in range(len(a)):
             self.i=a[i]
-            self.t2=time.process_time()
+            self.t2=time.clock()
             self.cnt,self.liPer=perm.palPerms(self.i)
             for z in range(len(self.liPer)):
                 w=self.liPer[z]
                 fich.wrFil(w, self.diFile)
-            self.t3=time.process_time()
+            self.t3=time.clock()
             self.timing=self.t3-self.t2#Tiempo total en permutar 1 palabra
             guisme.prCntPerWor(self.i,self.cnt)
             guisme.prTimming(self.timing)
-        self.t4=time.process_time()
+        self.t4=time.clock()
         self.timing=self.t4-self.t1#Tiempo total en permutar todas las palabras
         return self.timing
 
@@ -406,6 +390,7 @@ class Acttion:#Clase en la que se crean las acciones del SW
         self.dicF=fich.creDict()
         self.a,self.b=actt.adLiWord()
         self.i=checks.countList(self.b)
+        guisme.maiHead()
         guisme.resum()
         guisme.prCnt(self.i)
         self.t=actt.perSimWord(self.b,self.dicF)
@@ -414,18 +399,13 @@ class Acttion:#Clase en la que se crean las acciones del SW
 
 class Guisme:
     def resum(self):
-        print('|---------------------------------------------------------------------------------------|')
-        print('|--------------------------------| RESUMEN |--------------------------------------------|')
-        print('|---------------------------------------------------------------------------------------|')
-    def repmen(self):
-       print('|----------------------------------------------------------|')
-       print('|-------------- ¿Desea repetir la acción? -----------------|')
-       print('|----------------------------------------------------------|')
-       print('|------------ SI [(S)|(s)] | NO [(N)|(n)]  ----------------|')
-       print('|----------------------------------------------------------|')
+        print('|                                                                                                       |')
+        print('|-------------------------------------------------------------------------------------------------------|')
+        print('|-----------------------------------------| RESUMEN |---------------------------------------------------|')
+        print('|-------------------------------------------------------------------------------------------------------|')
 
     def prCnt(self,a):
-        print('|---------------------------------------------------------------------------------------|')
+        print('|-------------------------------------------------------------------------------------------------------|')
         print(f'|\t|------- [+] Hay un total de {a} palabras en la lista')
 
     def prCntPerWor(self,a,b):
@@ -435,42 +415,58 @@ class Guisme:
     def prTimming(self,a):
         a=round(a,3)
         print(f'|\t\t         [+] Tiempo transcurrido en permutar palabra: {a} segundos')
-        print('|---------------------------------------------------------------------------------------|')
+        print('|-------------------------------------------------------------------------------------------------------|')
 
     def prEndLis(self,a):
-        print('|---------------------------------------------------------------------------------------|')
+        print('|-------------------------------------------------------------------------------------------------------|')
         print(f'|\t|------- [+] Se generó el diccionario {a}')
-
+        
     def prEndTim(self,a):
         a=round(a,3)
         print(f'|\t|------- [+] Tiempo total transcurrido en la permutación: {a} segundos')
-        print('|---------------------------------------------------------------------------------------|')
+        print('|-------------------------------------------------------------------------------------------------------|')
+        
+    def maiHead(self):
+        print('|+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|')
+        print('|                                                                                                       |')
+        print('|    $  $ $ $ $$$  $$$   $ $$$    $$$  $     $     $$$$  $$$      $    $$$$  $  $  $$$$  $$$            |')
+        print('|    $  $ $ $ $  $ $  $  $ $  $   $  $ $  $  $     $     $  $    $ $   $     $ $   $     $  $           |')
+        print('|    $$$$  $  $$$  $$$   $ $  $   $$$  $  $  $     $     $$$    $   $  $     $$    $$$$  $$$            |')
+        print('|    $  $  $  $  $ $  $  $ $  $   $     $ $ $      $     $  $   $$$$$  $     $ $   $     $  $           |')
+        print('|    $  $  $  $$$  $   $ $ $$$    $      $ $   $   $$$$  $   $  $   $  $$$$  $  $  $$$$  $   $          |')
+        print('|                                                                                                       |')
+        print('|                                $$      $$       $$$       $$$$$           $$    $$  $$$$$$$           |')
+        print('|                                $$ $  $ $$      $$ $$      $$   $$        $$     $$  $$   $$           |')
+        print('|                   $$   $$      $$   $  $$     $$   $$     $$$$$         $$      $$  $$$$$$$           |')
+        print('|                    $$ $$       $$      $$    $$$$$$$$$    $$  $$       $$       $$       $$           |')
+        print('|                     $$$   $$   $$      $$   $$       $$   $$    $$    $$        $$       $$           |')
+        print('|                                                                                                       |')
+        print('|+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|')
+        print('|                                                                                                       |')
+        print('|    AUTOR: Sergio Romero                                      PROYECTO CEHv10 - MSI en CICE            |')
+        print('|    GITHUB: https://github.com/baah-romero                                                             |')
+        print('|                                                                                                       |')
+        print('|+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|')
+        
+    def maiStop(self):
+        print('|+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|')
+        print('|                                                                                                       |')
+        print('|                 PARA CORTAR LA INSERCIÓN DE PALABRAS INTRODUCIR \':wq\'                                 |')
+        print('|                                                                                                       |')
+        print('|-------------------------------------------------------------------------------------------------------|')
+        
 
 def main():
     actt.clearTerm()
+    guisme.maiHead()
+    guisme.maiStop()
     actt.nDiList()
 
-conver=Conver()
-checks=Checks()
-perm=Perm()
-fich=Fich()
-actt=Acttion()
-guisme=Guisme()
-'''
-n,li=actt.adSimWord()
-print(f'[+] Existen {n} permutaciones.\n')
-d=actt.repAct()
-b=actt.chRep(d)
-if b==True:
-    n,li=actt.adSimWord()
-    print(f'[+] Existen {n} permutaciones.\n')
-elif b==False:
-    pass
-num,li=perm.palPerms(a)
-perm.perNum(a,b)
-perm.perChrt(a)
-perm.pnch(a,b)
-print(f'{num} permutaciones')
-'''
 if __name__=='__main__':
+    conver=Conver()
+    checks=Checks()
+    perm=Perm()
+    fich=Fich()
+    actt=Acttion()
+    guisme=Guisme()
     main()
