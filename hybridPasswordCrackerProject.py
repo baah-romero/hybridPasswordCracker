@@ -349,20 +349,20 @@ class Acttion:#Clase en la que se crean las acciones del SW
 
     def perSimWord(self,a,b):#Añadir 1 palabra y permutar
         self.liPer=[]
-        self.t1=time.clock()
+        self.t1=time.process_time()
         self.diFile=b
         for i in range(len(a)):
             self.i=a[i]
-            self.t2=time.clock()
+            self.t2=time.process_time()
             self.cnt,self.liPer=perm.palPerms(self.i)
             for z in range(len(self.liPer)):
                 w=self.liPer[z]
                 fich.wrFil(w, self.diFile)
-            self.t3=time.clock()
+            self.t3=time.process_time()
             self.timing=self.t3-self.t2#Tiempo total en permutar 1 palabra
             guisme.prCntPerWor(self.i,self.cnt)
             guisme.prTimming(self.timing)
-        self.t4=time.clock()
+        self.t4=time.process_time()
         self.timing=self.t4-self.t1#Tiempo total en permutar todas las palabras
         return self.timing
 
