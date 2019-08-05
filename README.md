@@ -1,31 +1,24 @@
 # hybridPasswordCracker
-<h3>Repositorio de la herramienta hybridPasswordCracker. </h3>
-<h2>VERSIONES/H2><br>
+<h3>Repositorio de la herramienta hybridPasswordCracker. </h3><br>
+<h2>VERSIONES</H2><br>
 <b>Version MAR/2019. CEH Final Project.</b> 
-
-
-
+<br>
 <h2>DESCARGO DE RESPONSABILIDAD</H2><br>
-Toda la información que se expone a continuación sólo tiene fines educativos y pretende servir como manual del material que se ha visto en clase o como guía para cualquier persona interasada en la seguridad informática desde el punto de vista ofensivo. Como autor de este material, no me hago responsable de cualquier uso indebido que se haga de esta información. Para la mayoría de las pruebas que se enseñan en este manual se requiere autorización legal por escrito del propietario del activo sobre el que se realice la prueba.
+Como autor de este material, no me hago responsable de cualquier uso indebido que se haga de esta información y/o herramienta. Para la mayoría de las pruebas se requiere autorización legal por escrito del propietario del activo sobre el que se realice la prueba.
+La herramienta ha sido diseñada y programada para generar diccionarios y usarlos en ataques hybridos de contraseña.
+El código de los ficheros alojados, ha sido redactado por el propietario del repositorio.
 
-    - El código de los ficheros alojados, ha sido redactado por
-        el propietario del repositorio.
-    - Los documentos que se encuentran en el repositorio, se pueden
-        descargar y usar libremente.
-    - El autor no se hace repsonsable del mal uso que puedan darse
-        a los conocimientos que en este repositorio se comparten.
-    - La herramienta ha sido diseñada y programada para generar 
-        diccionarios y usarlos en ataques hybridos de contraseña.
     
-INFORMACIÓN
-
-
-    - En próximas versiones se añadiran funcionalidades en las cuales
+<h2>INFORMACIÓN</H2><br>
+<ol>
+    <li>En próximas versiones se añadiran funcionalidades en las cuales
     se pueda usar el diccionario con el añadido de las herramientas
     que vienen instaladas por defecto en KaliLinux, permitiendo ahorrar
-    tiempo a la hora de lanzar la prueba de concepto.
-    - Se admiten todo tipo de recomendaciones y aportes 
-    para mejorar la herramienta.
+    tiempo a la hora de lanzar la prueba de concepto.</li>
+    <li>Se admiten todo tipo de recomendaciones y aportes 
+    para mejorar la herramienta.</li>
+</ol>
+
     
 <h2>FORMA DE USO</H2><br>
 <ol>
