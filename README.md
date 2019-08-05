@@ -1,9 +1,12 @@
 # hybridPasswordCracker
-Version MAR/2019. CEH Final Project. June of 2019. 
+<h3>Repositorio de la herramienta hybridPasswordCracker. </h3>
+<h2>VERSIONES/H2><br>
+<b>Version MAR/2019. CEH Final Project.</b> 
 
-Repositorio de la herramienta hybridPasswordCracker. 
 
-DESCARGO DE RESPONSABILIDAD
+
+<h2>DESCARGO DE RESPONSABILIDAD</H2><br>
+Toda la información que se expone a continuación sólo tiene fines educativos y pretende servir como manual del material que se ha visto en clase o como guía para cualquier persona interasada en la seguridad informática desde el punto de vista ofensivo. Como autor de este material, no me hago responsable de cualquier uso indebido que se haga de esta información. Para la mayoría de las pruebas que se enseñan en este manual se requiere autorización legal por escrito del propietario del activo sobre el que se realice la prueba.
 
     - El código de los ficheros alojados, ha sido redactado por
         el propietario del repositorio.
@@ -24,13 +27,16 @@ INFORMACIÓN
     - Se admiten todo tipo de recomendaciones y aportes 
     para mejorar la herramienta.
     
-FORMA DE USO
+<h2>FORMA DE USO</H2><br>
+<ol>
+    <li>Clonar el repositorio: git clone https://github.com/baah-romero/hybridPasswordCracker.git</li>
+    <li>Acceder al repositorio: cd hybridPasswordCracker</li>
+    <li>Ejecutar la herramienta: python3 hybridPasswordCracker.py</li>
+    <li>Introduce el nombre que tendrá el diccionario, se generará en formato TXT</li>
+    <li>Añade palabras a la lista del diccionario, usa la cadena :wq para cortar la lista y empezar a generar el diccionario hybrido.</li>
+    <li>Al finalizar, mostrará un resumen por cada palabra, así, como del diccionario al completo.</li>
+    <li>Usar el diccionario en la PoF que se desee.</li>
+</ol>
     
-    1. Clonar el repositorio: git clone https://github.com/baah-romero/hybridPasswordCracker.git
-    2. Acceder al repositorio: cd hybridPasswordCracker
-    3. Ejecutar la herramienta: python3 hybridPasswordCracker.py
-    4. Introduce el nombre que tendrá el diccionario, se generará en formato TXT
-    5. Añade palabras a la lista del diccionario, usa la cadena :wq para cortar la lista 
-        y empezar a generar el diccionario hybrido.
-    6. Al finalizar, mostrará un resumen por cada palabra, así, como del diccionario al completo.
-    7. Usar el diccionario en la PoF que se desee.
+<h2>LICENCIA</H2><br>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
