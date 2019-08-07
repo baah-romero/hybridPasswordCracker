@@ -1,11 +1,13 @@
 # hybridPasswordCracker
 <h3>Repositorio de la herramienta hybridPasswordCracker. </h3><br>
 <h2>VERSIONES</H2><br>
+<pre>
 <b>|-[+]Version AGO/2019.</b>
     |-[!] Reestructuración del código en módulos. 
     |-[!] Nuevo diseño de la interfaz gráfica.
     |-[!] Renombrado del fichero inicial para ejecutar la herramienta a hpcp.py
 |-[+]Version MAR/2019. CEH Final Project. 
+</pre>
 <br>
 <h2>DESCARGO DE RESPONSABILIDAD</H2><br>
 Como autor de este material, no me hago responsable de cualquier uso indebido que se haga de esta información y/o herramienta. Para la mayoría de las pruebas se requiere autorización legal por escrito del propietario del activo sobre el que se realice la prueba.
