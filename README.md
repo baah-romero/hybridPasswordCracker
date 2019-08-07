@@ -5,7 +5,8 @@
 <b>|-[+]Version AGO/2019.</b><br>
  |&nbsp;&nbsp;&nbsp;&nbsp;|-[!] Reestructuración del código en módulos. <br>
  |&nbsp;&nbsp;&nbsp;&nbsp;|-[!] Nuevo diseño de la interfaz gráfica.<br>
- |&nbsp;&nbsp;&nbsp;&nbsp;-[!] Renombrado del fichero inicial para ejecutar la herramienta a hpcp.py<br>
+ |&nbsp;&nbsp;&nbsp;&nbsp;|-[!] Renombrado del fichero inicial para ejecutar la herramienta a hpcp.py<br>
+ |<br>
 |-[+]Version MAR/2019. CEH Final Project. 
 <br>
 <br>
