@@ -7,7 +7,7 @@ def prCnt(a):
     print(f'|\t|------- [+] Hay un total de {a} palabras en la lista')
 
 def prCntPerWor(a,b):
-    print(f'|\t\t|------- [+]  Palabra que permuta:{a})
+    print(f'|\t\t|------- [+]  Palabra que permuta:{a}')
     print(f'|------- [+]  Hay un total de {b} permutaciones posibles.')
 
 def prTimming(a):
