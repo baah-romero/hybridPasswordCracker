@@ -6,6 +6,7 @@
  <b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;|--[!] Reestructuración del código en módulos. <br>
  <b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;|--[!] Nuevo diseño de la interfaz gráfica.<br>
  <b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;|--[!] Renombrado del fichero inicial para ejecutar la herramienta a hpcp.py<br>
+ <b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;|--[!] Añadida la versión para WINDOWS.<br>
  <b>|</b><br>
 <b>|--[+]</b>&nbsp;Version MAR/2019. CEH Final Project. 
 <br>
