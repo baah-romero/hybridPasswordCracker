@@ -1,7 +1,11 @@
 # hybridPasswordCracker
 <h3>Repositorio de la herramienta hybridPasswordCracker. </h3><br>
 <h2>VERSIONES</H2><br>
-<b>Version MAR/2019. CEH Final Project.</b> 
+<b>|-[+]Version AGO/2019.</b>
+    |-[!] Reestructuración del código en módulos. 
+    |-[!] Nuevo diseño de la interfaz gráfica.
+    |-[!] Renombrado del fichero inicial para ejecutar la herramienta a hpcp.py
+|-[+]Version MAR/2019. CEH Final Project. 
 <br>
 <h2>DESCARGO DE RESPONSABILIDAD</H2><br>
 Como autor de este material, no me hago responsable de cualquier uso indebido que se haga de esta información y/o herramienta. Para la mayoría de las pruebas se requiere autorización legal por escrito del propietario del activo sobre el que se realice la prueba.
@@ -17,6 +21,7 @@ El código de los ficheros alojados, ha sido redactado por el propietario del re
     tiempo a la hora de lanzar la prueba de concepto.</li>
     <li>Se admiten todo tipo de recomendaciones y aportes 
     para mejorar la herramienta.</li>
+    <li><b>La herramienta se ha desarrollado en PYTHON v3; por lo que todo aquel intento de ejecutar la herramienta con cualquiera de las otras versiones previas de python, dará error en la ejecución del código. USAR PYTHON3 para invocar la herramienta en su ejecución.</b></li>
 </ol>
 
     
@@ -24,7 +29,7 @@ El código de los ficheros alojados, ha sido redactado por el propietario del re
 <ol>
     <li>Clonar el repositorio: git clone https://github.com/baah-romero/hybridPasswordCracker.git</li>
     <li>Acceder al repositorio: cd hybridPasswordCracker</li>
-    <li>Ejecutar la herramienta: python3 hybridPasswordCracker.py</li>
+    <li>Ejecutar la herramienta: python3 hpcp.py</li>
     <li>Introduce el nombre que tendrá el diccionario, se generará en formato TXT</li>
     <li>Añade palabras a la lista del diccionario, usa la cadena :wq para cortar la lista y empezar a generar el diccionario hybrido.</li>
     <li>Al finalizar, mostrará un resumen por cada palabra, así, como del diccionario al completo.</li>
