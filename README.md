@@ -2,12 +2,12 @@
 <h3>Repositorio de la herramienta hybridPasswordCracker. </h3><br>
 <h2>VERSIONES</H2><br>
 <br>
-<b>|-[+]Version AGO/2019.</b><br>
- |&nbsp;&nbsp;&nbsp;&nbsp;|-[!] Reestructuración del código en módulos. <br>
- |&nbsp;&nbsp;&nbsp;&nbsp;|-[!] Nuevo diseño de la interfaz gráfica.<br>
- |&nbsp;&nbsp;&nbsp;&nbsp;|-[!] Renombrado del fichero inicial para ejecutar la herramienta a hpcp.py<br>
- |<br>
-|-[+]Version MAR/2019. CEH Final Project. 
+<b>|--[+]&nbsp;Version AGO/2019.</b><br>
+ <b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;|--[!] Reestructuración del código en módulos. <br>
+ <b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;|--[!] Nuevo diseño de la interfaz gráfica.<br>
+ <b>|</b>&nbsp;&nbsp;&nbsp;&nbsp;|--[!] Renombrado del fichero inicial para ejecutar la herramienta a hpcp.py<br>
+ <b>|</b><br>
+<b>|--[+]</b>&nbsp;Version MAR/2019. CEH Final Project. 
 <br>
 <br>
 <h2>DESCARGO DE RESPONSABILIDAD</H2><br>
