@@ -62,6 +62,9 @@ def charToNum(a):
 '''Función para pasar de letra a caracter'''
 def charToChar(a):
     ctnc=a
+    if ctnc==65 or ctnc==97:
+        ctnc=64
+        return ctnc
     if ctnc==66 or ctnc==98:#Si es 'B' o 'b' retornar 'v'
         ctnc=118#ctnc valdrá 'v'
         return ctnc
@@ -154,6 +157,7 @@ def morech(a):
         elif a==87:#Si es W
             moch=66#Retorna B
             return moch
+
 
 
 def chchar(a):#Comprueba con el ASCII que tipo de caracter es
